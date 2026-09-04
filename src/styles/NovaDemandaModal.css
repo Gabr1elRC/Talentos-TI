@@ -1,0 +1,150 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.modal-demanda {
+  width: min(760px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #082d5c;
+  font-size: 26px;
+}
+
+.modal-header p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.modal-fechar {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-fechar:hover {
+  background: #e2e8f0;
+}
+
+.demanda-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-grupo-completo {
+  grid-column: 1 / -1;
+}
+
+.form-grupo label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  padding: 11px 12px;
+  background: #ffffff;
+  color: #1f2937;
+  outline: none;
+}
+
+.form-grupo textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+  border-color: #0d4f8b;
+  box-shadow: 0 0 0 3px rgba(13, 79, 139, 0.12);
+}
+
+.modal-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.botao-cancelar,
+.botao-salvar {
+  border: none;
+  border-radius: 9px;
+  padding: 11px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-cancelar {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.botao-cancelar:hover {
+  background: #cbd5e1;
+}
+
+.botao-salvar {
+  background: #0d4f8b;
+  color: white;
+}
+
+.botao-salvar:hover {
+  background: #082d5c;
+}
+
+@media (max-width: 700px) {
+  .demanda-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grupo-completo {
+    grid-column: auto;
+  }
+
+  .modal-demanda {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,303 @@
+.kanban {
+  width: 100%;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+/* COLUNAS */
+
+.kanban-coluna {
+  
+  min-width: 220px;
+  width: 260px;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 12px;
+  border-top: 5px solid #cbd5e1;
+}
+
+/* CORES DAS COLUNAS */
+
+.coluna-nova {
+  border-top-color: #3b82f6;
+}
+
+.coluna-em-analise {
+  border-top-color: #8b5cf6;
+}
+
+.coluna-planejada {
+  border-top-color: #64748b;
+}
+
+.coluna-em-andamento {
+  border-top-color: #eab308;
+}
+
+.coluna-aguardando-terceiro {
+  border-top-color: #f97316;
+}
+
+.coluna-aguardando-solicitante {
+  border-top-color: #f59e0b;
+}
+
+.coluna-bloqueada {
+  border-top-color: #dc2626;
+}
+
+.coluna-concluida {
+  border-top-color: #16a34a;
+}
+
+/* CABEÇALHO DA COLUNA */
+
+.kanban-coluna-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.kanban-coluna-header h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #082d5c;
+}
+
+.kanban-coluna-header span {
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dbeafe;
+  color: #0d4f8b;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* CONTEÚDO DA COLUNA */
+
+.kanban-coluna-conteudo {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* CARD DA TAREFA */
+
+.tarefa-card {
+  background: white;
+  padding: 14px;
+  border-radius: 10px;
+  border-left: 5px solid #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tarefa-card h4 {
+  margin: 8px 0 12px;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tarefa-id {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tarefa-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 12px;
+}
+
+/* PRIORIDADE */
+
+.prioridade-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tarefa-card.prioridade-baixa {
+  border-left-color: #3b82f6;
+}
+
+.tarefa-card.prioridade-media {
+  border-left-color: #f59e0b;
+}
+
+.tarefa-card.prioridade-alta {
+  border-left-color: #ef4444;
+}
+
+.tarefa-card.prioridade-critica {
+  border-left-color: #991b1b;
+}
+
+.prioridade-badge.prioridade-baixa {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.prioridade-badge.prioridade-media {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.prioridade-badge.prioridade-alta {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.prioridade-badge.prioridade-critica {
+  background: #991b1b;
+  color: white;
+}
+
+/* ALTERAÇÃO DE STATUS */
+
+.tarefa-status {
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: white;
+  color: #334155;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+}
+
+.tarefa-status:focus {
+  border-color: #0d4f8b;
+}
+
+.contador-nova {
+  background: #dbeafe !important;
+  color: #1d4ed8 !important;
+}
+
+.contador-em-analise {
+  background: #ede9fe !important;
+  color: #7c3aed !important;
+}
+
+.contador-planejada {
+  background: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+.contador-em-andamento {
+  background: #fef9c3 !important;
+  color: #a16207 !important;
+}
+
+.contador-aguardando-terceiro {
+  background: #ffedd5 !important;
+  color: #c2410c !important;
+}
+
+.contador-aguardando-solicitante {
+  background: #fef3c7 !important;
+  color: #b45309 !important;
+}
+
+.contador-bloqueada {
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
+}
+
+.contador-concluida {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+.tarefa-card {
+  background: white;
+  padding: 14px;
+  border-radius: 10px;
+  border-left: 5px solid #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.tarefa-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  background: #f8fafc;
+}
+
+.tarefa-ver-detalhes {
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0d4f8b;
+  text-align: right;
+}
+
+.tarefa-card {
+  cursor: grab;
+}
+
+.tarefa-card:active {
+  cursor: grabbing;
+}
+
+.tarefa-arrastando {
+  opacity: 0.45;
+  transform: scale(0.98);
+}
+
+.kanban-coluna {
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.kanban-coluna-destino {
+  background: #eef6ff;
+  box-shadow:
+    inset 0 0 0 2px #3b82f6;
+}
+
+.kanban-vazio {
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  color: #94a3b8;
+
+  text-align: center;
+}
+
+.kanban-vazio span {
+  font-size: 24px;
+}
+
+.kanban-vazio p {
+  margin: 0;
+  font-size: 13px;
+}
