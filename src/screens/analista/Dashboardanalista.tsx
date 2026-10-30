@@ -384,34 +384,7 @@ function formatarMinutos(
 
   return (
     <>
-      <div className="analista-header">
-        <div>
-          <h1>
-            Dashboard
-          </h1>
-
-          <p>
-            Acompanhe as demandas e
-            atividades do setor de TI.
-          </p>
-        </div>
-
-        <div className="analista-usuario">
-          <div className="analista-avatar">
-            👤
-          </div>
-
-          <div>
-            <strong>
-              {usuario.nome}
-            </strong>
-
-            <span>
-              {usuario.setor}
-            </span>
-          </div>
-        </div>
-      </div>
+    
 
       <section className="analista-indicadores">
         <div className="analista-indicador">

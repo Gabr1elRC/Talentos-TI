@@ -18,17 +18,6 @@ function RelatoriosAnalista({
             operacionais do setor de TI.
           </p>
         </div>
-
-        <div className="analista-usuario">
-          <div className="analista-avatar">
-            👤
-          </div>
-
-          <div>
-            <strong>Analista</strong>
-            <span>Setor de TI</span>
-          </div>
-        </div>
       </div>
 
       <section className="analista-card relatorios-analista-filtros">
@@ -103,18 +92,7 @@ function RelatoriosAnalista({
       </section>
 
       <section className="relatorios-analista-indicadores">
-        <div className="analista-indicador">
-          <div className="analista-indicador-icone azul">
-            📋
-          </div>
-
-          <div>
-            <span>Demandas recebidas</span>
-            <strong>42</strong>
-            <small>No período selecionado</small>
-          </div>
-        </div>
-
+       
         <div className="analista-indicador">
           <div className="analista-indicador-icone verde">
             ✓

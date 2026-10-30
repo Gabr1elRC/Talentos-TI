@@ -249,16 +249,7 @@ async function adicionarApontamento(
           </p>
         </div>
 
-        <div className="analista-usuario">
-          <div className="analista-avatar">
-            👤
-          </div>
-
-          <div>
-            <strong>Analista</strong>
-            <span>Setor de TI</span>
-          </div>
-        </div>
+        
       </div>
 
       <section className="analista-card analista-kanban-card">

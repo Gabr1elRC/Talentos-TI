@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState,useRef } from 'react'
 import type { DragEvent } from 'react'
+
 
 import '../styles/Kanban.css'
 import type { Tarefa } from '../types/Tarefas'
@@ -180,8 +181,125 @@ function Kanban({
   finalizarArraste()
 }
 
+const kanbanRef =
+  useRef<HTMLDivElement | null>(null)
+
+const [
+  arrastandoQuadro,
+  setArrastandoQuadro,
+] = useState(false)
+
+const inicioArraste =
+  useRef({
+    x: 0,
+    y: 0,
+    scrollLeft: 0,
+    scrollTop: 0,
+  })
+
+function iniciarArrasteQuadro(
+  event: React.MouseEvent<HTMLDivElement>
+) {
+  const alvo =
+    event.target as HTMLElement
+
+  /*
+   * Não arrasta o quadro quando
+   * clicar em botão, select,
+   * input ou cartão.
+   */
+  if (
+    alvo.closest('button') ||
+    alvo.closest('select') ||
+    alvo.closest('input') ||
+    alvo.closest('textarea') ||
+    alvo.closest('.kanban-card')
+  ) {
+    return
+  }
+
+  const elemento =
+    kanbanRef.current
+
+  if (!elemento) {
+    return
+  }
+
+  setArrastandoQuadro(true)
+
+  inicioArraste.current = {
+    x: event.clientX,
+    y: event.clientY,
+
+    scrollLeft:
+      elemento.scrollLeft,
+
+    scrollTop:
+      elemento.scrollTop,
+  }
+}
+
+function moverQuadro(
+  event: React.MouseEvent<HTMLDivElement>
+) {
+  if (!arrastandoQuadro) {
+    return
+  }
+
+  const elemento =
+    kanbanRef.current
+
+  if (!elemento) {
+    return
+  }
+
+  const deslocamentoX =
+    event.clientX -
+    inicioArraste.current.x
+
+  const deslocamentoY =
+    event.clientY -
+    inicioArraste.current.y
+
+  elemento.scrollLeft =
+    inicioArraste.current.scrollLeft -
+    deslocamentoX
+
+  elemento.scrollTop =
+    inicioArraste.current.scrollTop -
+    deslocamentoY
+}
+
+function finalizarArrasteQuadro() {
+  setArrastandoQuadro(false)
+}
+
   return (
-    <div className="kanban">
+  <div
+    ref={kanbanRef}
+
+    className={`kanban ${
+      arrastandoQuadro
+        ? 'kanban-arrastando'
+        : ''
+    }`}
+
+    onMouseDown={
+      iniciarArrasteQuadro
+    }
+
+    onMouseMove={
+      moverQuadro
+    }
+
+    onMouseUp={
+      finalizarArrasteQuadro
+    }
+
+    onMouseLeave={
+      finalizarArrasteQuadro
+    }
+  >
       {colunas.map((coluna) => {
         const tarefasDaColuna =
           tarefas.filter(

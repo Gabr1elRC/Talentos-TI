@@ -105,17 +105,6 @@ function Historico() {
             Consulte o histórico das suas atividades e registros de tempo.
           </p>
         </div>
-
-        <div className="usuario-card">
-          <div className="usuario-avatar">
-            👤
-          </div>
-
-          <div>
-            <strong>Estagiário</strong>
-            <span>Setor de TI</span>
-          </div>
-        </div>
       </div>
 
       <section className="dashboard-bloco historico-filtros">

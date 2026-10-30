@@ -18,6 +18,7 @@ import Login from './screens/Login'
 import Analista from './screens/analista/Analista'
 import Estagiario from './screens/estagiario/estagiario'
 import Direcao from './screens/direcao/direcao'
+import Sala from './screens/salas/Sala'
 
 import type {
   Tarefa,
@@ -27,6 +28,7 @@ type Perfil =
   | 'estagiario'
   | 'analista'
   | 'direcao'
+  | 'sala'
   | null
 
 function App() {
@@ -199,6 +201,17 @@ async function fazerLogin(
       />
     )
   }
+
+      if (
+      perfil ===
+      'sala'
+    ) {
+      return (
+        <Sala  
+          usuario={usuario}
+          onLogout={fazerLogout}/>
+      )
+    }
 
   return (
     <Analista
