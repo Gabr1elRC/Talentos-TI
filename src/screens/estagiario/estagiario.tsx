@@ -7,6 +7,8 @@ import MinhasDemandas from './MinhasDemandas'
 import MinhaJornada from './MinhaJornada'
 import Historico from './Historico'
 import type {UsuarioLogado,} from '../../services/api'
+import Header from '../../components/header'
+
 
 type EstagiarioProps = {
   onLogout: () => void
@@ -101,6 +103,9 @@ function Estagiario({
       />
 
       <main className="dashboard-content">
+        <Header
+          usuario={usuario}
+        />
         {paginaAtiva ===
           'dashboard' && (
           <DashboardEstagiario

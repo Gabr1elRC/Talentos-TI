@@ -271,22 +271,7 @@ function JornadaAnalista({
           </p>
         </div>
 
-        <div className="analista-usuario">
-          <div className="analista-avatar">
-            👤
-          </div>
-
-          <div>
-            <strong>
-              {usuario.nome}
-            </strong>
-
-            <span>
-              {usuario.setor ||
-                'Setor de TI'}
-            </span>
-          </div>
-        </div>
+        
       </div>
 
       <div className="analista-jornada-grid">

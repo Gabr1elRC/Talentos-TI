@@ -1,5 +1,5 @@
 import type { Tarefa } from '../../types/Tarefas'
-
+import Notificacoes from '../../components/Notificacoes'
 import type {
   UsuarioLogado,
 } from '../../services/api'
@@ -83,22 +83,6 @@ function DashboardEstagiario({
             Acompanhamento das atividades e
             demandas do dia
           </p>
-        </div>
-
-        <div className="usuario-card">
-          <div className="usuario-avatar">
-            👤
-          </div>
-
-          <div>
-            <strong>
-              {usuario.nome}
-            </strong>
-
-            <span>
-              {usuario.setor || 'Setor de TI'}
-            </span>
-          </div>
         </div>
       </div>
 

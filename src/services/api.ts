@@ -7,12 +7,18 @@ import type {
 
 const API_URL = import.meta.env.VITE_API_URL
 
+  console.log(
+  'API usada pelo frontend:',
+  API_URL
+)
+
 export type UsuarioLogado = {
   id: number
   nome: string
   email: string
   perfil: string
   setor: string
+  salaId: number | null
 }
 
 export async function buscarTarefas() {
@@ -474,6 +480,19 @@ export async function fazerLogin(
       id: Number(
         dados.usuario.id
       ),
+      usuario: {
+  ...dados.usuario,
+  id: Number(
+    dados.usuario.id
+  ),
+  salaId:
+    dados.usuario.salaId !== null &&
+    dados.usuario.salaId !== undefined
+      ? Number(
+          dados.usuario.salaId
+        )
+      : null,
+},
     },
   }
 }
@@ -852,4 +871,86 @@ export async function buscarResumoEquipeHoje() {
         ),
     })
   ) as ResumoEquipeHoje[]
+}
+
+export type Notificacao = {
+  id: number
+  usuarioId: number
+  tarefaId: number | null
+  tipo: string
+  titulo: string
+  mensagem: string
+  lida: boolean
+  criadoEm: string
+  tarefaTitulo: string | null
+}
+
+export async function buscarNotificacoes(
+  usuarioId: number
+) {
+  const resposta = await fetch(
+    `${API_URL}/notificacoes/usuario/${usuarioId}`
+  )
+
+  const dados = await resposta.json()
+
+  if (!resposta.ok) {
+    throw new Error(
+      dados.mensagem ||
+        'Erro ao buscar notificações.'
+    )
+  }
+
+  return (dados.notificacoes ?? []).map(
+    (item: any) => ({
+      id: Number(item.id),
+
+      usuarioId: Number(
+        item.usuario_id
+      ),
+
+      tarefaId:
+        item.tarefa_id
+          ? Number(item.tarefa_id)
+          : null,
+
+      tipo: item.tipo,
+
+      titulo: item.titulo,
+
+      mensagem: item.mensagem,
+
+      lida: Boolean(item.lida),
+
+      criadoEm:
+        item.criado_em,
+
+      tarefaTitulo:
+        item.tarefa_titulo ?? null,
+    })
+  ) as Notificacao[]
+}
+
+export async function marcarNotificacaoLida(
+  notificacaoId: number
+) {
+  const resposta = await fetch(
+    `${API_URL}/notificacoes/${notificacaoId}/lida`,
+    {
+      method: 'PATCH',
+    }
+  )
+
+  const dados = await resposta.json()
+
+  if (!resposta.ok) {
+    throw new Error(
+      dados.mensagem ||
+        'Erro ao marcar notificação como lida.'
+    )
+  }
+
+
+
+  return dados.notificacao
 }

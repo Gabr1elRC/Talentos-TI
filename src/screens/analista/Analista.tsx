@@ -1,10 +1,17 @@
 import { useState } from 'react'
-import type { UsuarioLogado,} from '../../services/api'
+import '../../styles/Header.css' 
+import type {
+  UsuarioLogado,
+} from '../../services/api'
+import Header from '../../components/header'
 import '../../styles/Analista.css'
 
 import Sidebar from '../../components/Sidebar'
 
-import type { Tarefa } from '../../types/Tarefas'
+
+import type {
+  Tarefa,
+} from '../../types/Tarefas'
 
 import DashboardAnalista from './Dashboardanalista'
 import DemandasAnalista from './DemandasAnalista'
@@ -33,7 +40,7 @@ function Analista({
 }: AnalistaProps) {
   const [
     paginaAtiva,
-    setPaginaAtiva,   
+    setPaginaAtiva,
   ] = useState('dashboard')
 
   return (
@@ -46,6 +53,10 @@ function Analista({
       />
 
       <main className="analista-content">
+        <Header
+          usuario={usuario}
+        />
+
         {paginaAtiva === 'dashboard' && (
           <DashboardAnalista
             tarefas={tarefas}

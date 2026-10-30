@@ -394,22 +394,6 @@ function MinhaJornada({
             das atividades do dia
           </p>
         </div>
-
-        <div className="usuario-card">
-          <div className="usuario-avatar">
-            👤
-          </div>
-
-          <div>
-            <strong>
-              {usuario.nome}
-            </strong>
-
-            <span>
-              {usuario.setor}
-            </span>
-          </div>
-        </div>
       </div>
 
       <div className="jornada-grid">

@@ -415,22 +415,6 @@ function MinhasDemandas({
             Demandas atribuídas a você
           </p>
         </div>
-
-        <div className="usuario-card">
-          <div className="usuario-avatar">
-            👤
-          </div>
-
-          <div>
-            <strong>
-              {usuario.nome}
-            </strong>
-
-            <span>
-              {usuario.setor}
-            </span>
-          </div>
-        </div>
       </div>
 
       <section className="cards-indicadores">

@@ -301,3 +301,7 @@
   margin: 0;
   font-size: 13px;
 }
+
+.kanban.kanban-arrastando {
+  cursor: grabbing;
+}
