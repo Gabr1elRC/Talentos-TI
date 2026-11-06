@@ -6,7 +6,7 @@ import NovoUsuarioModal from '../../Modal/NovoUsuarioModal'
 import {
   buscarUsuarios,
 } from '../../services/api'
-
+import '../../styles/analista/EquipeAnalista.css'
 import type {
   UsuarioSistema,
 } from '../../services/api'

@@ -2,10 +2,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 220px;
+  width: 210px;
   height: 100vh;
-  background: #0b3568;
-  padding: 20px 16px;
+  background: #012857;
+  padding: 18px 14px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -13,18 +13,22 @@
 }
 
 .sidebar-logo-triangle {
-  width: 180px;
-  height: 160px;
-  background: white;
-  margin: 0 auto 28px;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  width: 156px;
+  height: 138px;
+  background: #ffffff;
+  margin: 0 auto 22px;
+  clip-path: polygon(
+    50% 0%,
+    0% 100%,
+    100% 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .sidebar-logo {
-  width: 190px;
+  width: 164px;
   height: auto;
   display: block;
   margin-top: 8px;
@@ -33,44 +37,106 @@
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 18px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.sidebar-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-grupo-titulo {
+  padding: 0 10px;
+  margin-bottom: 3px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  );
 }
 
 .sidebar-item {
   width: 100%;
   border: none;
   background: transparent;
-  color: white;
-  padding: 13px 16px;
+  color: #ffffff;
+  padding: 11px 12px;
   text-align: left;
   border-radius: 9px;
   cursor: pointer;
-  font-size: 15px;
-  transition: 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .sidebar-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(
+    255,
+    255,
+    255,
+    0.09
+  );
 }
 
 .sidebar-item.ativo {
   background: #f57c00;
-  color: white;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow:
+    0 6px 14px
+    rgba(0, 0, 0, 0.14);
+}
+
+.sidebar-item.ativo:hover {
+  background: #f57c00;
 }
 
 .sidebar-sair {
   margin-top: auto;
   border: none;
   background: transparent;
-  color: white;
-  padding: 13px 16px;
+  color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+  padding: 11px 12px;
   text-align: left;
   border-radius: 9px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .sidebar-sair:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(
+    255,
+    255,
+    255,
+    0.09
+  );
+}
+
+.sidebar-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.18
+  );
+  border-radius: 999px;
 }

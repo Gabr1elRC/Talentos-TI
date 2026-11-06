@@ -1,0 +1,225 @@
+.sala-alerta-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    rgba(15, 23, 42, 0.68);
+
+  backdrop-filter: blur(4px);
+
+  z-index: 20000;
+}
+
+.sala-alerta-card {
+  width: 100%;
+  max-width: 580px;
+
+  padding: 38px;
+
+  background: #ffffff;
+
+  border-top:
+    8px solid #f57c00;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 30px 80px
+    rgba(0, 0, 0, 0.3);
+
+  text-align: center;
+
+  animation:
+    sala-alerta-entrada
+    0.25s ease-out;
+}
+
+.sala-alerta-icone {
+  width: 78px;
+  height: 78px;
+
+  margin:
+    0 auto 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fff3e6;
+
+  font-size: 38px;
+}
+
+.sala-alerta-label {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #f57c00;
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.sala-alerta-card h2 {
+  margin:
+    0 0 14px;
+
+  color: #0b3568;
+
+  font-size: 28px;
+}
+
+.sala-alerta-card p {
+  margin:
+    0 auto 26px;
+
+  max-width: 470px;
+
+  color: #475569;
+
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.sala-alerta-card button {
+  width: 100%;
+
+  border: none;
+
+  padding: 15px 20px;
+
+  border-radius: 11px;
+
+  background: #0b3568;
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.sala-alerta-card button:hover {
+  background: #082b56;
+}
+
+@keyframes sala-alerta-entrada {
+  from {
+    opacity: 0;
+    transform:
+      scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      scale(1);
+  }
+}
+
+.sala-alerta-acoes {
+  width: 100%;
+
+  display: flex;
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.sala-alerta-acoes button {
+  flex: 1;
+}
+
+.sala-alerta-ok {
+  background: #16a34a !important;
+  color: #ffffff !important;
+}
+
+.sala-alerta-ok:hover {
+  background: #15803d !important;
+}
+
+.sala-alerta-suporte {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+.sala-alerta-suporte:hover {
+  background: #b91c1c !important;
+}
+
+.sala-alerta-voltar {
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+.sala-alerta-form-suporte {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+.sala-alerta-form-suporte label {
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sala-alerta-form-suporte textarea {
+  width: 100%;
+  min-height: 100px;
+
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  resize: vertical;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+}
+
+.sala-alerta-form-suporte textarea:focus {
+  border-color: #0b3568;
+}
+
+.sala-alerta-erro {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  margin-top: 12px;
+  padding: 10px 12px;
+
+  background: #fff1f2;
+
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+
+  color: #be123c;
+
+  font-size: 12px;
+  font-weight: 600;
+}

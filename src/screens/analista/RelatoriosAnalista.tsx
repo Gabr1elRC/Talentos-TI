@@ -1,4 +1,5 @@
 import type { Tarefa } from '../../types/Tarefas'
+import '../../styles/analista/RelatoriosAnalista.css'
 
 type RelatoriosAnalistaProps = {
   tarefas: Tarefa[]

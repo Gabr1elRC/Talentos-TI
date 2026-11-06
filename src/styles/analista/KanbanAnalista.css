@@ -1,0 +1,70 @@
+/* =========================
+   ANALISTA - KANBAN
+========================= */
+
+.analista-kanban-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.analista-kanban-topo {
+  min-height: 75px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-bottom:
+    1px solid #e2e8f0;
+}
+
+.analista-kanban-topo h2 {
+  margin: 0;
+
+  color: #0b3568;
+
+  font-size: 19px;
+}
+
+.analista-kanban-topo > div:first-child > span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.analista-kanban-total {
+  min-width: 75px;
+
+  padding: 8px 14px;
+
+  border-radius: 10px;
+
+  background: #eef4fb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.analista-kanban-total span {
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.analista-kanban-total strong {
+  color: #0b3568;
+
+  font-size: 18px;
+}
+

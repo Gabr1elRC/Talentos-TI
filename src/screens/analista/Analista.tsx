@@ -4,8 +4,8 @@ import type {
   UsuarioLogado,
 } from '../../services/api'
 import Header from '../../components/header'
-import '../../styles/Analista.css'
-
+import '../../styles/analista/AnalistaLayout.css'
+import ControleSalasAnalista from './ControleSalasAnalista'
 import Sidebar from '../../components/Sidebar'
 
 
@@ -15,7 +15,6 @@ import type {
 
 import DashboardAnalista from './Dashboardanalista'
 import DemandasAnalista from './DemandasAnalista'
-import KanbanAnalista from './KanbanAnalista'
 import JornadaAnalista from './JornadaAnalista'
 import UsuariosAnalista from './UsuariosAnalista'
 import RelatoriosAnalista from './RelatoriosAnalista'
@@ -72,14 +71,6 @@ function Analista({
           />
         )}
 
-        {paginaAtiva === 'kanban' && (
-          <KanbanAnalista
-            tarefas={tarefas}
-            setTarefas={setTarefas}
-            usuario={usuario}
-          />
-        )}
-
         {paginaAtiva === 'jornada' && (
           <JornadaAnalista
             tarefas={tarefas}
@@ -87,7 +78,7 @@ function Analista({
           />
         )}
 
-        {paginaAtiva === 'usuarios' && (
+        {paginaAtiva === 'equipe' && (
           <UsuariosAnalista />
         )}
 
@@ -95,6 +86,10 @@ function Analista({
           <RelatoriosAnalista
             tarefas={tarefas}
           />
+        )}
+
+        {paginaAtiva === 'salas' && (
+          <ControleSalasAnalista />
         )}
       </main>
     </div>

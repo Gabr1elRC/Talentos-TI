@@ -1,0 +1,233 @@
+/* =========================
+   ANALISTA - RELATÓRIOS
+========================= */
+
+.relatorios-analista-filtros {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(150px, 1fr))
+    120px;
+  gap: 14px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.relatorios-analista-filtros > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.relatorios-analista-filtros label {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.relatorios-analista-filtros input,
+.relatorios-analista-filtros select {
+  height: 42px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.relatorios-analista-filtrar {
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  background: #1769d2;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.relatorios-analista-indicadores {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.relatorios-analista-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.relatorios-analista-barras {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.relatorios-analista-barras > div {
+  display: grid;
+  grid-template-columns:
+    110px
+    minmax(0, 1fr)
+    35px;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+  color: #475569;
+}
+
+.relatorios-analista-barra,
+.relatorios-analista-progresso {
+  height: 9px;
+  background: #edf2f7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.relatorios-analista-barra > div,
+.relatorios-analista-progresso > div {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 999px;
+}
+
+.relatorios-analista-barra.roxa > div {
+  background: #8b5cf6;
+}
+
+.relatorios-analista-barra.cinza > div {
+  background: #64748b;
+}
+
+.relatorios-analista-barra.laranja > div {
+  background: #f59e0b;
+}
+
+.relatorios-analista-barra.verde > div {
+  background: #22c55e;
+}
+
+.relatorios-analista-equipe {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.relatorios-analista-equipe > div {
+  display: grid;
+  grid-template-columns:
+    150px
+    minmax(0, 1fr)
+    45px;
+  align-items: center;
+  gap: 14px;
+}
+
+.relatorios-analista-equipe > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.relatorios-analista-equipe strong {
+  color: #0b3568;
+}
+
+.relatorios-analista-equipe span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.relatorios-analista-tabela-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.relatorios-analista-tabela-header {
+  min-height: 70px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.relatorios-analista-tabela-header h2 {
+  margin: 0;
+  color: #0b3568;
+  font-size: 19px;
+}
+
+.relatorios-analista-tabela-header span {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.relatorios-analista-tabela-header button {
+  border: 1px solid #cbd5e1;
+  background: white;
+  color: #475569;
+  padding: 8px 13px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.relatorios-analista-tabela-wrapper {
+  overflow-x: auto;
+}
+
+.relatorios-analista-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.relatorios-analista-tabela th {
+  padding: 14px 16px;
+  background: #f1f5f9;
+  color: #475569;
+  text-align: left;
+  font-size: 12px;
+}
+
+.relatorios-analista-tabela td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.relatorios-analista-taxa {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #e7f8ef;
+  color: #15803d;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .relatorios-analista-filtros {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .relatorios-analista-indicadores {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .relatorios-analista-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .relatorios-analista-filtros,
+  .relatorios-analista-indicadores {
+    grid-template-columns: 1fr;
+  }
+}
