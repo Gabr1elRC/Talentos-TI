@@ -5,6 +5,7 @@ import Kanban from '../../components/Kanban'
 import DetalhesDemandaModal from '../../Modal/DetalhesDemandaModal'
 import type {NovoApontamentoManual,} from '../../Modal/ApontamentoManualModal'
 import type {UsuarioLogado,} from '../../services/api'
+import '../../styles/analista/KanbanAnalista.css'
 
 
 type KanbanAnalistaProps = {

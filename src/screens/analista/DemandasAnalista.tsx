@@ -1,3 +1,4 @@
+import KanbanAnalista from './KanbanAnalista'
 import { useState } from 'react'
 import {criarTarefa,buscarTarefaPorId,alterarStatusTarefa,} from '../../services/api'
 import type { Tarefa } from '../../types/Tarefas'
@@ -9,6 +10,7 @@ import DetalhesDemandaModal from '../../Modal/DetalhesDemandaModal'
 import {adicionarRegistroTempo} from '../../services/api'
 import type {NovoApontamentoManual} from '../../Modal/ApontamentoManualModal'
 import type { UsuarioLogado,} from '../../services/api'
+import '../../styles/analista/DemandasAnalista.css'
 
 type DemandasAnalistaProps = {
   tarefas: Tarefa[]
@@ -23,6 +25,9 @@ function DemandasAnalista({
   setTarefas,
   usuario,
 }: DemandasAnalistaProps) {
+  const [visualizacao, setVisualizacao] =
+  useState<'lista' | 'kanban'>('lista')
+
   const [
     modalNovaAberto,
     setModalNovaAberto,
@@ -353,16 +358,45 @@ async function alterarStatus(
   return (
     <>
       <div className="analista-header">
-        <div>
-          <h1>Demandas</h1>
+  <div>
+    <h1>Demandas</h1>
 
-          <p>
-            Gerencie, distribua e
-            acompanhe as demandas do
-            setor de TI.
-          </p>
-        </div>
-      </div>
+    <p>
+      Gerencie, distribua e acompanhe
+      as demandas do setor de TI.
+    </p>
+  </div>
+
+  <div className="analista-visualizacao">
+    <button
+      type="button"
+      className={
+        visualizacao === 'lista'
+          ? 'ativo'
+          : ''
+      }
+      onClick={() =>
+        setVisualizacao('lista')
+      }
+    >
+      ☰ Lista
+    </button>
+
+    <button
+      type="button"
+      className={
+        visualizacao === 'kanban'
+          ? 'ativo'
+          : ''
+      }
+      onClick={() =>
+        setVisualizacao('kanban')
+      }
+    >
+      ▦ Kanban
+    </button>
+  </div>
+</div>
 
       <section className="analista-demandas-topo">
         <div className="analista-demandas-busca">
@@ -466,7 +500,7 @@ async function alterarStatus(
           + Nova demanda
         </button>
       </section>
-
+    {visualizacao === 'lista' && (
       <section className="analista-card analista-demandas-card">
         <div className="analista-demandas-card-header">
           <div>
@@ -655,6 +689,15 @@ async function alterarStatus(
           </div>
         )}
       </section>
+    )}
+
+    {visualizacao === 'kanban' && (
+  <KanbanAnalista
+    tarefas={tarefasFiltradas}
+    setTarefas={setTarefas}
+    usuario={usuario}
+  />
+)}
 
       {modalNovaAberto && (
         <NovaDemandaModal

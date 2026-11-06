@@ -1,0 +1,416 @@
+/* =========================
+   ANALISTA - USUÁRIOS
+========================= */
+
+.analista-usuarios-topo {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1fr)
+    180px
+    160px
+    160px;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+.analista-usuarios-topo input,
+.analista-usuarios-topo select {
+  width: 100%;
+  height: 42px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  padding: 0 12px;
+
+  background: white;
+
+  color: #334155;
+}
+
+.analista-novo-usuario {
+  height: 42px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #f57c00;
+
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.analista-novo-usuario:hover {
+  background: #df6f00;
+}
+
+.analista-usuarios-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.analista-usuarios-header {
+  min-height: 70px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.analista-usuarios-header h2 {
+  margin: 0;
+
+  color: #0b3568;
+
+  font-size: 19px;
+}
+
+.analista-usuarios-header span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.analista-usuarios-tabela-wrapper {
+  overflow-x: auto;
+}
+
+.analista-usuarios-tabela {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 13px;
+}
+
+.analista-usuarios-tabela th {
+  padding: 14px 16px;
+
+  background: #f1f5f9;
+
+  text-align: left;
+
+  color: #475569;
+
+  font-size: 12px;
+}
+
+.analista-usuarios-tabela td {
+  padding: 15px 16px;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  color: #475569;
+}
+
+.analista-usuarios-tabela tbody tr:hover {
+  background: #f8fafc;
+}
+
+.analista-usuario-linha {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.analista-usuario-linha > div {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: #eaf2fd;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.analista-usuario-linha strong {
+  color: #0b3568;
+}
+
+.analista-usuario-status {
+  display: inline-flex;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: #e7f8ef;
+
+  color: #15803d;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.analista-usuario-ver {
+  border: none;
+
+  background: transparent;
+
+  color: #1769d2;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .analista-usuarios-topo {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .analista-usuarios-topo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Botão novo usuario  */
+
+.analista-btn-novo-usuario {
+  border: none;
+  background: #f28c28;
+  color: #ffffff;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  box-shadow: 0 4px 12px rgba(242, 140, 40, 0.25);
+}
+
+.analista-btn-novo-usuario:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(242, 140, 40, 0.3);
+}
+
+.analista-btn-novo-usuario:active {
+  transform: translateY(0);
+}
+
+.analista-btn-novo-usuario:focus {
+  outline: 2px solid rgba(242, 140, 40, 0.25);
+  outline-offset: 2px;
+}
+
+/* dashboard analista - mostra de euipe */
+
+.analista-equipe-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.analista-equipe-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.analista-equipe-avatar {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.analista-equipe-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.analista-equipe-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.analista-equipe-topo > div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.analista-equipe-topo strong {
+  font-size: 15px;
+}
+
+.analista-equipe-topo span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.analista-equipe-conteudo h3 {
+  margin: 13px 0 4px;
+  font-size: 15px;
+}
+
+.analista-equipe-conteudo p {
+  margin: 5px 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.analista-equipe-tarefa {
+  display: block;
+  margin-top: 4px;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+.analista-equipe-situacao {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.analista-equipe-situacao.trabalhando {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.analista-equipe-situacao.pausado {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.analista-equipe-tempo {
+  display: flex;
+  gap: 28px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.analista-equipe-tempo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.analista-equipe-tempo span {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.analista-equipe-tempo strong {
+  font-size: 14px;
+}
+
+.analista-cronometro-equipe {
+  font-family: monospace;
+  font-size: 18px !important;
+  letter-spacing: 1px;
+}
+
+.analista-resumo-equipe-hoje {
+  margin-top: 20px;
+}
+
+.analista-resumo-equipe-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.analista-resumo-equipe-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 16px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+.analista-resumo-equipe-usuario {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.analista-resumo-equipe-usuario > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.analista-resumo-equipe-usuario span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.analista-resumo-equipe-info {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.analista-resumo-equipe-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.analista-resumo-equipe-info span {
+  color: #6b7280;
+  font-size: 11px;
+}
+
+.analista-resumo-equipe-info strong {
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .analista-resumo-equipe-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .analista-resumo-equipe-info {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+}

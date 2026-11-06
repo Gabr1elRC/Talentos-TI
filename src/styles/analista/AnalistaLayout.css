@@ -1,0 +1,124 @@
+/* =========================
+   ANALISTA - LAYOUT BASE
+========================= */
+
+.analista-page {
+  min-height: 100vh;
+  background: #f4f7fb;
+  overflow-x: hidden;
+}
+
+.analista-content {
+  margin-left: 210px;
+
+  min-height: 100vh;
+  min-width: 0;
+
+  padding: 90px 28px 32px;
+
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   CABEÇALHO DAS TELAS
+========================= */
+
+.analista-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.analista-header h1 {
+  margin: 0;
+
+  color: #0b3568;
+  font-size: 32px;
+}
+
+.analista-header p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+  font-size: 15px;
+}
+
+
+/* =========================
+   CARD PADRÃO
+========================= */
+
+.analista-card {
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.analista-card-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-bottom: 18px;
+}
+
+.analista-card-header h2 {
+  margin: 0;
+
+  color: #0b3568;
+  font-size: 19px;
+}
+
+.analista-card-header button {
+  border: none;
+
+  background: transparent;
+
+  color: #1769d2;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.analista-status {
+  padding: 5px 10px;
+
+  background: #e7f8ef;
+  color: #15803d;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 760px) {
+  .analista-content {
+    margin-left: 0;
+    padding: 80px 20px 20px;
+  }
+
+  .analista-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

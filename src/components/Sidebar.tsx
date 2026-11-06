@@ -61,61 +61,109 @@ function Sidebar({ onLogout, perfil, paginaAtiva, onNavegar, }: SidebarProps) {
   </>
   )}
 
-  {perfil === 'analista' && (
+ {perfil === 'analista' && (
   <>
-    <button
-      className={`sidebar-item ${
-        paginaAtiva === 'dashboard' ? 'ativo' : ''
-      }`}
-      onClick={() => onNavegar('dashboard')}
-    >
-      Dashboard
-    </button>
+    <div className="sidebar-grupo">
+      <span className="sidebar-grupo-titulo">
+        VISÃO GERAL
+      </span>
 
-    <button
-      className={`sidebar-item ${
-        paginaAtiva === 'demandas' ? 'ativo' : ''
-      }`}
-      onClick={() => onNavegar('demandas')}
-    >
-      Demandas
-    </button>
+      <button
+        className={`sidebar-item ${
+          paginaAtiva === 'dashboard'
+            ? 'ativo'
+            : ''
+        }`}
+        onClick={() =>
+          onNavegar('dashboard')
+        }
+      >
+        Dashboard
+      </button>
+    </div>
 
-    <button
-      className={`sidebar-item ${
-        paginaAtiva === 'kanban' ? 'ativo' : ''
-      }`}
-      onClick={() => onNavegar('kanban')}
-    >
-      Kanban
-    </button>
+    <div className="sidebar-grupo">
+      <span className="sidebar-grupo-titulo">
+        OPERAÇÃO
+      </span>
 
-    <button
-      className={`sidebar-item ${
-        paginaAtiva === 'jornada' ? 'ativo' : ''
-      }`}
-      onClick={() => onNavegar('jornada')}
-    >
-      Minha Jornada
-    </button>
+      <button
+        className={`sidebar-item ${
+          paginaAtiva === 'demandas'
+            ? 'ativo'
+            : ''
+        }`}
+        onClick={() =>
+          onNavegar('demandas')
+        }
+      >
+        Demandas
+      </button>
 
-    <button
-      className={`sidebar-item ${
-        paginaAtiva === 'usuarios' ? 'ativo' : ''
-      }`}
-      onClick={() => onNavegar('usuarios')}
-    >
-      Usuários
-    </button>
+      <button
+        className={`sidebar-item ${
+          paginaAtiva === 'salas'
+            ? 'ativo'
+            : ''
+        }`}
+        onClick={() =>
+          onNavegar('salas')
+        }
+      >
+        Controle de Salas
+      </button>
+    </div>
 
-    <button
-      className={`sidebar-item ${
-        paginaAtiva === 'relatorios' ? 'ativo' : ''
-      }`}
-      onClick={() => onNavegar('relatorios')}
-    >
-      Relatórios
-    </button>
+    <div className="sidebar-grupo">
+      <span className="sidebar-grupo-titulo">
+        TRABALHO
+      </span>
+
+      <button
+        className={`sidebar-item ${
+          paginaAtiva === 'jornada'
+            ? 'ativo'
+            : ''
+        }`}
+        onClick={() =>
+          onNavegar('jornada')
+        }
+      >
+        Minha Jornada
+      </button>
+    </div>
+
+    <div className="sidebar-grupo">
+      <span className="sidebar-grupo-titulo">
+        GESTÃO
+      </span>
+
+      <button
+        className={`sidebar-item ${
+          paginaAtiva === 'equipe'
+            ? 'ativo'
+            : ''
+        }`}
+        onClick={() =>
+          onNavegar('equipe')
+        }
+      >
+        Equipe
+      </button>
+
+      <button
+        className={`sidebar-item ${
+          paginaAtiva === 'relatorios'
+            ? 'ativo'
+            : ''
+        }`}
+        onClick={() =>
+          onNavegar('relatorios')
+        }
+      >
+        Relatórios
+      </button>
+    </div>
   </>
 )}
 

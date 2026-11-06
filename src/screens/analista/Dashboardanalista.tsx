@@ -2,7 +2,7 @@ import {
   useEffect,
   useState,
 } from 'react'
-
+import '../../styles/analista/DashboardAnalista.css'
 import type {
   Tarefa,
 } from '../../types/Tarefas'
