@@ -174,15 +174,20 @@ function configurarAtualizador() {
   )
 
   autoUpdater.on(
-    'update-available',
-    (info) => {
-      console.log(
-        'Nova atualização disponível:',
-        info.version
+  'update-available',
+  (info) => {
+    console.log(
+      'Nova atualização disponível:',
+      info.version
+    )
+
+    if (win) {
+      win.setTitle(
+        `Talentos TI - Atualização ${info.version} disponível`
       )
     }
-  )
-
+  })
+  
   autoUpdater.on(
     'update-not-available',
     () => {
@@ -204,20 +209,21 @@ function configurarAtualizador() {
   )
 
   autoUpdater.on(
-    'update-downloaded',
-    (info) => {
-      console.log(
-        'Atualização baixada:',
-        info.version
-      )
+  'update-downloaded',
+  (info) => {
+    console.log(
+      'Atualização baixada:',
+      info.version
+    )
 
-      /*
-       * Não instala imediatamente.
-       * A atualização será aplicada
-       * quando o aplicativo sair.
-       */
+    if (win) {
+      win.setTitle(
+        `Talentos TI - Atualização ${info.version} baixada`
+      )
     }
-  )
+  }
+)
+  
 
   autoUpdater.on(
     'error',
