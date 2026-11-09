@@ -7,9 +7,28 @@ const {
 
 const path = require('path')
 
+const {
+  autoUpdater,
+} = require('electron-updater')
+
 let win = null
 let tray = null
 let isQuitting = false
+
+function getIconPath() {
+  if (app.isPackaged) {
+    return path.join(
+      process.resourcesPath,
+      'icon.ico'
+    )
+  }
+
+  return path.join(
+    __dirname,
+    'build',
+    'icon.ico'
+  )
+}
 
 function createWindow() {
   win = new BrowserWindow({
@@ -20,14 +39,15 @@ function createWindow() {
     minHeight: 600,
 
     autoHideMenuBar: true,
-
     show: false,
 
-    icon: path.join(
-      __dirname,
-      'build',
-      'icon.ico'
-    ),
+    icon: getIconPath(),
+
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: false,
+      partition: 'persist:talentos-ti',
+    },
   })
 
   if (app.isPackaged) {
@@ -70,15 +90,13 @@ function createWindow() {
 }
 
 function createTray() {
-  const iconPath = path.join(
-    __dirname,
-    'build',
-    'icon.ico'
-  )
+  const iconPath =
+    getIconPath()
 
-  tray = new Tray(
-    iconPath
-  )
+  tray =
+    new Tray(
+      iconPath
+    )
 
   const menu =
     Menu.buildFromTemplate([
@@ -135,28 +153,122 @@ function createTray() {
   )
 }
 
-app.whenReady().then(() => {
-  createWindow()
-  createTray()
+/*
+ * =========================
+ * ATUALIZAÇÃO AUTOMÁTICA
+ * =========================
+ */
 
-  app.on(
-    'activate',
+function configurarAtualizador() {
+  if (!app.isPackaged) {
+    return
+  }
+
+  autoUpdater.on(
+    'checking-for-update',
     () => {
-      if (!win) {
-        createWindow()
-      } else {
+      console.log(
+        'Verificando atualizações...'
+      )
+    }
+  )
+
+  autoUpdater.on(
+    'update-available',
+    (info) => {
+      console.log(
+        'Nova atualização disponível:',
+        info.version
+      )
+    }
+  )
+
+  autoUpdater.on(
+    'update-not-available',
+    () => {
+      console.log(
+        'Nenhuma atualização disponível.'
+      )
+    }
+  )
+
+  autoUpdater.on(
+    'download-progress',
+    (progresso) => {
+      console.log(
+        `Download: ${Math.round(
+          progresso.percent
+        )}%`
+      )
+    }
+  )
+
+  autoUpdater.on(
+    'update-downloaded',
+    (info) => {
+      console.log(
+        'Atualização baixada:',
+        info.version
+      )
+
+      /*
+       * Não instala imediatamente.
+       * A atualização será aplicada
+       * quando o aplicativo sair.
+       */
+    }
+  )
+
+  autoUpdater.on(
+    'error',
+    (erro) => {
+      console.error(
+        'Erro na atualização:',
+        erro
+      )
+    }
+  )
+
+  autoUpdater
+    .checkForUpdatesAndNotify()
+    .catch((erro) => {
+      console.error(
+        'Erro ao verificar atualizações:',
+        erro
+      )
+    })
+}
+
+app
+  .whenReady()
+  .then(() => {
+    createWindow()
+
+    createTray()
+
+    configurarAtualizador()
+
+    app.on(
+      'activate',
+      () => {
+        if (!win) {
+          createWindow()
+          return
+        }
+
         win.show()
         win.focus()
       }
-    }
-  )
-})
+    )
+  })
 
 app.on(
   'window-all-closed',
   () => {
-    // Mantém o aplicativo rodando
-    // em segundo plano.
+    /*
+     * Mantém o app ativo
+     * por causa do Tray.
+     */
   }
 )
 

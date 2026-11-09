@@ -1,5 +1,5 @@
 import type { Tarefa } from '../../types/Tarefas'
-import Notificacoes from '../../components/Notificacoes'
+
 import type {
   UsuarioLogado,
 } from '../../services/api'
@@ -11,7 +11,6 @@ type DashboardEstagiarioProps = {
 
 function DashboardEstagiario({
   tarefas,
-  usuario,
 }: DashboardEstagiarioProps) {
   const hoje =
     new Date().toLocaleDateString('sv-SE')
