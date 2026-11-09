@@ -75,3 +75,14 @@
 .login-form button:hover {
   background: #082d5c;
 }
+
+.login-versao {
+  position: fixed;
+  right: 12px;
+  bottom: 8px;
+
+  font-size: 11px;
+  color: #94a3b8;
+
+  user-select: none;
+}

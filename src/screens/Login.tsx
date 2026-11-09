@@ -143,6 +143,10 @@ function Login({
           </button>
         </form>
       </div>
+
+      <div className="login-versao">
+        v0.1.5
+      </div>
     </div>
   )
 }

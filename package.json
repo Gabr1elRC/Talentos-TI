@@ -1,7 +1,7 @@
 {
   "name": "talentos-ti",
-  "private": true,
-  "version": "0.1.4",
+  "private": true,  
+  "version": "0.1.5",
   "description": "Sistema de Demandas de TI do Colégio Talentos",
   "author": "Colégio Talentos",
   "main": "electron.cjs",
